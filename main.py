@@ -43,10 +43,3 @@ except sr.UnknownValueError:
 #Se estiver sem internet ou por qualquer outro motivo não conseguir um get no Google Speech retorna o error
 except sr.RequestError as e:
     print(f'Error ao chamar o Google Speech Recognition service; {e}')
-
-
-
-
-
-
-
