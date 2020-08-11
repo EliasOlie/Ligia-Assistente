@@ -47,8 +47,6 @@ def Conversor_Bot(cambio=''):
     except Ue:
         print('❌ Error de url! Tente: \nRevisar os dados inseridos\nChecar as moedas disponíveis\n')
 
-Conversor_Bot()
-
 flag = input("Consultar os dados novamente? S/N")
 if flag.lower() == 's':
     Conversor_Bot('dolar')

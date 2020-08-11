@@ -1,5 +1,18 @@
 import speech_recognition as sr
-import conversor_bot as Cb
+#import conversor_bot as Cb
+import os, json 
+from speech import falar
+from settings import user_preferences
+
+
+user_pref = user_preferences.user_preferences
+
+user_pref = json.loads(user_pref)
+
+print(user_pref['user_name'])
+print(user_pref['call_as'])
+
+falar(user_pref['call_as'])
 
 #Cb.Conversor_Bot()
 
