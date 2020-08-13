@@ -14,6 +14,8 @@ print(user_pref['call_as'])
 
 falar(user_pref['call_as'])
 
+#preparar o laço while
+
 #Cb.Conversor_Bot()
 
 #_-_-_-_-_-_-_-_-_-_-_-_-_- IMPLEMENTAR _-_-_-_-_-_-_-_-_-_-_-_-_-_#
