@@ -15,6 +15,7 @@ reproducao = pyttsx3.init()
 def falar (frase):
     reproducao.say(frase)
     reproducao.runAndWait()
+    return frase
     			
 
 def AudioErrorLog(lista_de_erros):

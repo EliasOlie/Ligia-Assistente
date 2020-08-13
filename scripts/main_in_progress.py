@@ -1,20 +1,56 @@
 import speech_recognition as sr
 #import conversor_bot as Cb
-import os, json 
+import os
 from speech import falar
-from settings import user_preferences
+import pickle
 
 
-user_pref = user_preferences.user_preferences
+falar('Olá, sou a Lígia a sua assistente virtual!')
+falar('Permita-me analisar seus dados só um segundo!')
 
-user_pref = json.loads(user_pref)
+loadead_data = pickle.load(open('user_preferences.dat', 'rb'))
 
-print(user_pref['user_name'])
-print(user_pref['call_as'])
+nome = loadead_data['user_name']
+tratamento = loadead_data['called']
 
-falar(user_pref['call_as'])
+if nome == '' and tratamento == '':
+    falar('Vejo que essa é a nossa primeira vez! Que bom que me escolheu!')
+    falar('Primeiro deixe-me saber algugumas coisas')
+    nome = input(falar('Qual o seu nome? '))
+    tratamento = input(falar('E como você gostaria que eu lhe chamasse? '))
 
-#preparar o laço while
+    user_pref = {}
+
+    user_pref['user_name'] = nome
+
+    user_pref['called'] = tratamento
+
+    user_pref = pickle.dump(user_pref, open('user_preferences.dat', 'wb'))
+
+    falar(f'confira por favor, seu nome é {nome} e você quer que eu lhe chame de {tratamento}')
+
+else:
+    falar(f'Achei!, confira por favor, seu nome é {nome} e você quer que eu lhe chame de {tratamento}')
+
+    falar('Se eu disse errado por favor, quando for conferir os dados aperte "n" e dê enter!')
+
+    if input(falar('Confere os dados? "S" para sim e "N" para não ')).lower() == 'n':
+        user_pref = {}
+
+        user_pref['user_name'] = input(falar('Qual o seu nome? '))
+
+        user_pref['called'] = input(falar('como você gostaria que eu lhe chamasse?'))
+
+        user_pref = pickle.dump(user_pref, open('user_preferences.dat', 'wb'))
+
+        falar(f'confira por favor, seu nome é {nome} e você quer que eu lhe chame de {tratamento}')
+
+
+
+
+#refazer o pickle
+
+#preparar o laço while de interações na web
 
 #Cb.Conversor_Bot()
 
