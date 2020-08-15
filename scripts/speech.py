@@ -25,6 +25,7 @@ def Voice_Recognizer_Currency():
     print('Qual cotação deseja ver hoje?')
     
     falar("Qual cotação deseja ver hoje?")
+    
 
     
     r = sr.Recognizer()
@@ -46,6 +47,34 @@ def Voice_Recognizer_Currency():
     except sr.RequestError as e:
         print(f'Error ao chamar o Google Speech Recognition service; {e}\n')
     return som_detectado
+
+def Voice_Recognizer_Search():
+    print('Qual busca deseja fazer hoje?')
+    
+    falar("Qual busca deseja fazer hoje?")
+    
+
+    
+    r = sr.Recognizer()
+
+    with sr.Microphone() as source:
+        r.adjust_for_ambient_noise(source)
+        print("Diga algo: ")
+        audio = r.listen(source)
+    try:
+        #print(f'Você disse: {r.recognize_google(audio, language="pt-br")}\n')
+        som_detectado = r.recognize_google(audio, language="pt-br")
+        falar(f'O nosso bot de busca vai pesquisar sobre {som_detectado} aguarde...')
+
+    #Se o speech recognizer não entender o que foi dito (ruído ou outra língua p.ex) ele avisa do error
+    except sr.UnknownValueError:
+        AudioErrorLog(lista_erros)
+
+    #Se estiver sem internet ou por qualquer outro motivo não conseguir um get no Google Speech retorna o error
+    except sr.RequestError as e:
+        print(f'Error ao chamar o Google Speech Recognition service; {e}\n')
+    return som_detectado
+
 
 
 def Voice_Recognizer():
