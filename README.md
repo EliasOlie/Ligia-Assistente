@@ -1,6 +1,6 @@
 # Ligia-Assistente
 
-# Atenção! Projeto ainda em andamento, muitas coisas ainda serão implementadas, porém, nesse momento o projeto passará cerca de 3 meses sem ataulizações :/
+# Atenção! Projeto ainda em andamento, muitas coisas ainda serão implementadas, porém, nesse momento o projeto passará cerca de 3 meses sem ataulizações :/ Passou muito mais sorry :/
 
 
 O começo de uma assistente virtual chamada "Lígia"

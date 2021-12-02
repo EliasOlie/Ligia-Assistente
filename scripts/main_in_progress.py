@@ -48,7 +48,7 @@ else:
 
 
 
-#refazer o pickle
+#refazer o pickle <- cuidado o picke é perigoso!!!
 
 #preparar o laço while de interações na web
 
